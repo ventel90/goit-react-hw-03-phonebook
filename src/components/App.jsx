@@ -64,11 +64,11 @@ export class App extends Component {
   };
 
   componentDidMount() {
-    const contactsStorage = JSON.parse(localStorage.getItem('contacts'));
-    if (contactsStorage) {
-      this.setState({ contacts: contactsStorage });
+    const contactsStorage = localStorage.getItem('contacts');
+    if (contactsStorage !== null) {
+      const parsedContacts = JSON.parse(contactsStorage);
+      this.setState({ contacts: parsedContacts });
     }
-    console.log(contactsStorage);
   };
 
   componentDidUpdate(_, prevState) {
